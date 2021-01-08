@@ -1,7 +1,5 @@
 package com.github.kgunnerud.example.apps.bar;
 
-import com.github.kgunnerud.example.libs.contracts.json.bar.BarDto;
-import com.github.kgunnerud.example.libs.contracts.json.foo.FooDto;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -20,13 +18,13 @@ public class BarApp {
     }
 
     @GetMapping("bar")
-    BarDto bar() {
-        return new BarDto(UUID.randomUUID().toString());
+    String bar() {
+        return "world";
     }
 
     @GetMapping("fooByProxy")
-    FooDto foo() {
+    String foo() {
         var restTemplate = new RestTemplate(); // Yes, should be a bean.
-        return restTemplate.getForObject("http://localhost:8082/foo", FooDto.class);
+        return "hello";
     }
 }

@@ -1,6 +1,5 @@
 package com.github.kgunnerud.example.apps.foo;
 
-import com.github.kgunnerud.example.libs.contracts.json.foo.FooDto;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
@@ -17,7 +16,7 @@ public class FooApp {
     }
 
     @GetMapping("foo")
-    FooDto foo() {
-        return new FooDto("A Name");
+    String foo() {
+        return "HI SARAH";
     }
 }

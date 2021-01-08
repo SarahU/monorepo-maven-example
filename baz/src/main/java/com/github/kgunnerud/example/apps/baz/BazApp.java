@@ -1,6 +1,5 @@
 package com.github.kgunnerud.example.apps.baz;
 
-import com.github.kgunnerud.example.libs.contracts.json.baz.BazDto;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,7 +15,7 @@ public class BazApp {
     }
 
     @GetMapping("baz")
-    BazDto baz() {
-        return new BazDto(Long.MAX_VALUE);
+    String baz() {
+        return "Hallo Sarah, hoe gaan dit?";
     }
 }
