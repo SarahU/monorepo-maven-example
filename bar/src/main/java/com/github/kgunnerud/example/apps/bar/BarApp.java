@@ -5,9 +5,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.client.RestTemplate;
+import org.apache.commons.collections.BidiMap;
+import org.apache.commons.collections.bidimap.TreeBidiMap;
 
-import java.util.UUID;
 
 @RestController
 @RequestMapping
@@ -19,12 +19,12 @@ public class BarApp {
 
     @GetMapping("bar")
     String bar() {
+        BidiMap bidi = new TreeBidiMap();
         return "world";
     }
 
     @GetMapping("fooByProxy")
     String foo() {
-        var restTemplate = new RestTemplate(); // Yes, should be a bean.
         return "hello";
     }
 }
